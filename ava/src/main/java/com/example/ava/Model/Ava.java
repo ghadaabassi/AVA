@@ -1,0 +1,127 @@
+package com.example.ava.Model;
+
+import jakarta.persistence.*;
+import java.util.Date;
+
+import com.example.ava.Model.Enums.Etat;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Ava {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    // @Column(nullable = false)
+    private int type = 0; // 0:AVAA 1:AVAE
+
+    @Column(nullable = false)
+    private long base;
+
+    @Column(nullable = false)
+    private long initial;
+
+    @Column(nullable = false)
+    private long solde;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
+    @Enumerated(EnumType.STRING)
+    private Etat etat = Etat.Attente;
+
+    @Lob
+    @Column(name = "file_data")
+    private byte[] fileData;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    public Ava() {
+
+    }
+
+    public Ava(long base, long initial, long solde, Date date, Client client, byte[] fileData) {
+
+        this.base = base;
+        this.initial = initial;
+        this.solde = solde;
+        this.date = date;
+        this.client = client;
+        this.fileData = fileData;
+    }
+
+    public byte[] getFileData() {
+        return fileData;
+    }
+
+    public void setFileData(byte[] fileData) {
+        this.fileData = fileData;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public long getBase() {
+        return base;
+    }
+
+    public void setBase(long base) {
+        this.base = base;
+    }
+
+    public long getInitial() {
+        return initial;
+    }
+
+    public void setInitial(long initial) {
+        this.initial = initial;
+    }
+
+    public long getSolde() {
+        return solde;
+    }
+
+    public void setSolde(long solde) {
+        this.solde = solde;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Etat getEtat() {
+        return etat;
+    }
+
+    public void setEtat(Etat etat) {
+        this.etat = etat;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+}
