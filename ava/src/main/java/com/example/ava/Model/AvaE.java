@@ -15,7 +15,7 @@ public class AvaE extends Ava {
 
     }
 
-    public AvaE(long base, long initial, long solde, Date date, Client client, byte[] fileData,
+    public AvaE(long base, long initial, long solde, Date date, Client client, File fileData,
             List<Beneficiaire> beneficiaires) {
         super(base, initial, solde, date, client, fileData);
         this.setType(1);

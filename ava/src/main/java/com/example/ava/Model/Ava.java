@@ -31,9 +31,9 @@ public class Ava {
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.Attente;
 
-    @Lob
-    @Column(name = "file_data")
-    private byte[] fileData;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "file_id")
+    File file;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -43,22 +43,22 @@ public class Ava {
 
     }
 
-    public Ava(long base, long initial, long solde, Date date, Client client, byte[] fileData) {
+    public Ava(long base, long initial, long solde, Date date, Client client, File file) {
 
         this.base = base;
         this.initial = initial;
         this.solde = solde;
         this.date = date;
         this.client = client;
-        this.fileData = fileData;
+        this.file = file;
     }
 
-    public byte[] getFileData() {
-        return fileData;
+    public File getFileData() {
+        return file;
     }
 
-    public void setFileData(byte[] fileData) {
-        this.fileData = fileData;
+    public void setFileData(File file) {
+        this.file = file;
     }
 
     public Long getId() {
@@ -123,5 +123,13 @@ public class Ava {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 }
