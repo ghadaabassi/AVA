@@ -1,24 +1,23 @@
 package com.example.ava.Model;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Beneficiaire extends Personne {
 
     @ManyToOne
     @JoinColumn(name = "avae_id")
+    @JsonBackReference
     private AvaE avae;
 
     private String fonction;
     private Date dateInscription;
-
 
     public Beneficiaire() {
 

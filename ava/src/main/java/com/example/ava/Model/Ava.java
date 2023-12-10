@@ -33,11 +33,11 @@ public class Ava {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id", unique = true)
-    private Client client;// Store only the client ID
+    private Client client;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "file_id")
-    private File file; // Store only the file ID
+    private File file; 
 
     public Ava() {
 
