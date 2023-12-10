@@ -20,10 +20,10 @@ public class Ava {
     private long base;
 
     @Column(nullable = false)
-    private long initial;
+    private Long initial;
 
     @Column(nullable = false)
-    private long solde;
+    private Long solde;
 
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -32,12 +32,12 @@ public class Ava {
     private Etat etat = Etat.Attente;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "file_id")
-    File file;
+    @JoinColumn(name = "client_id", unique = true)
+    private Client client;// Store only the client ID
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "file_id")
+    private File file; // Store only the file ID
 
     public Ava() {
 
@@ -50,14 +50,6 @@ public class Ava {
         this.solde = solde;
         this.date = date;
         this.client = client;
-        this.file = file;
-    }
-
-    public File getFileData() {
-        return file;
-    }
-
-    public void setFileData(File file) {
         this.file = file;
     }
 

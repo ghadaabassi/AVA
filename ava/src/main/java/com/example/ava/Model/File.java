@@ -1,11 +1,13 @@
 package com.example.ava.Model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class File {
@@ -15,6 +17,17 @@ public class File {
 
     private String fileName;
 
+    @OneToOne(mappedBy = "file", cascade = CascadeType.ALL)
+    private Ava ava;
+
+    public Ava getAva() {
+        return ava;
+    }
+
+    public void setAva(Ava ava) {
+        this.ava = ava;
+    }
+
     @Lob
     @Column(length = 1000000000)
     private byte[] data;
@@ -22,9 +35,10 @@ public class File {
     public File() {
     }
 
-    public File(String fileName, byte[] data) {
+    public File(String fileName, byte[] data, Ava ava) {
         this.fileName = fileName;
         this.data = data;
+        this.ava = ava;
     }
 
     public Long getId() {
