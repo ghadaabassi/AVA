@@ -27,9 +27,9 @@ public class FileController {
     private FileService fileService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-        fileService.saveFile(file);
-        return ResponseEntity.ok("File uploaded successfully.");
+    public File uploadFile(@RequestParam("file") MultipartFile file) {
+        return fileService.saveFile(file);
+        
     }
 
     @DeleteMapping("/delete/{id}")

@@ -50,11 +50,7 @@ ava=  {
     residenceSecteur: '',
     agenceSecteur: '',
   },
-  file: null,
 };
-
-
-
 
   /*
   client={
@@ -71,9 +67,9 @@ ava=  {
   file:any
 
   select(e:any){
-  
-    if (e.target.length > 0) {
-    this.file=e.target.files[0];}
+    //if (e.target.length > 0) {
+    this.file=e.target.files[0];
+  //}
   }
 
   constructor(private serv:ProjetService,private router:Router ) { }
@@ -82,36 +78,25 @@ ava=  {
   }
 
 
+  
   addAvaWithFile(){
-      
+
+    if (!this.file) {
+      console.error('No file selected!');
+      return;
+   }
+
       let fd= new FormData()
       fd.append('file',this.file);
-     // console.log(this.ava.date);
-
-      //fd.append('type',this.ava.type.toString());
-      //fd.append('base',this.ava.base.toString());
-      //fd.append('initial',this.ava.initial.toString());
-      //fd.append('date',this.ava.date.toString());
-      //fd.append('solde',this.ava.solde.toString());
-    this.serv.addFile(fd).
-    subscribe((data:any) => {
-     
-    },
-      err=>{
-        console.log(err);
-      });
-
-
-    this.serv.addAVA(this.ava)
+      //fd.append('title',this.ava.client.email);
+      console.log("fd.has('file'): ", fd.has('file'));  // Check if 'file' is present
+      console.log("fd.has('title'): ", fd.has('title')); 
+      console.log("fd.get('file'): ", fd.get('file'));  // Get value associated with 'file'
+//console.log("fd.get('title'): ", fd.get('title')); 
+    this.serv.addAVA(this.ava,fd)
     .subscribe((res:any) =>{
-      this.serv.getAVAId(res.id).subscribe(
-        (res:any) =>{
-          console.log("ava ",res)
-          this.router.navigate(['/home']);
-        },err=>{
-
-        }
-      )
+    
+      this.router.navigate(['/home']);
     },
     err=>{
       console.log(err);

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,15 @@ export class ProjetService {
       return this.http.post(this.url+'clients',client);
     }
 
-    addAVA(project:any){
-      return this.http.post(this.url+'avas', project);
+    addAVA(project:any,file:any){
+      return this.http.post(this.url+'avas', project,file);
     }
+    
+    /*
+    addAVA(ava: any, file: FormData): Observable<any> {
+    
+      return this.http.post(this.url+'avas', file, { params: ava });
+    }*/
 
     getAVAId(id:number){
       return this.http.get(this.url+'avas/'+id);

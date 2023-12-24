@@ -15,16 +15,19 @@ public class FileService {
     @Autowired
     private FileRepository fileRepository;
 
-    public void saveFile(MultipartFile file) {
+    public File saveFile(MultipartFile file) {
         try {
             File fileEntity = new File();
             fileEntity.setFileName(file.getOriginalFilename());
             fileEntity.setData(file.getBytes());
-            fileRepository.save(fileEntity);
+            return fileRepository.save(fileEntity);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
+
 
     public boolean deleteFileById(String id) {
         File fileEntity = fileRepository.findById(id).orElse(null);

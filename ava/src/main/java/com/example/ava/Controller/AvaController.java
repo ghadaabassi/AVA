@@ -2,13 +2,17 @@ package com.example.ava.Controller;
 
 import com.example.ava.Model.Ava;
 import com.example.ava.Model.Client;
-import com.example.ava.Repository.ClientRepository;
 import com.example.ava.Service.AvaService;
 import com.example.ava.Service.ClientService;
 import com.example.ava.Service.FileService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.http.MediaType;
+
+
+
 
 import java.util.List;
 
@@ -18,17 +22,15 @@ import java.util.List;
 public class AvaController {
 
     private final AvaService avaService;
-    //private ClientRepository clientRepository;
+    // private ClientRepository clientRepository;
     private final ClientService clientService;
     private final FileService fileService;
-        
-    
 
     @Autowired
-    public AvaController(AvaService avaService, ClientService clientService ,FileService fileService) {
+    public AvaController(AvaService avaService, ClientService clientService, FileService fileService) {
         this.avaService = avaService;
         this.clientService = clientService;
-        this.fileService  = fileService;
+        this.fileService = fileService;
     }
 
     @GetMapping
@@ -41,14 +43,21 @@ public class AvaController {
         return avaService.getAvaById(id).orElse(null);
     }
 
-    @PostMapping
-    public Ava createAva(@RequestBody Ava ava) {
+    @CrossOrigin(origins = "*")
+    @PostMapping( consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public Ava createAva(@RequestBody Ava ava, @RequestParam("file") MultipartFile file1) {
         if (ava.getClient() != null) {
-            System.out.println("saveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-            
+
             Client savedClient = clientService.saveClient(ava.getClient());
             ava.setClient(savedClient);
         }
+        System.out.println("\n\nsaveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee299999999992\n");
+        fileService.saveFile(file1);
+        System.out.println("\n\nsaveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee22222222222\n");
+        // f.setAva(ava);
+        // ava.setFile(f);
+        System.out.println("\n\nsaveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee22222222222\n");
+
         return avaService.saveAva(ava);
     }
 
