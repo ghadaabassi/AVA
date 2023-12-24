@@ -5,6 +5,7 @@ import com.example.ava.Service.AuthentificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/authentifications")
 public class AuthentificationController {

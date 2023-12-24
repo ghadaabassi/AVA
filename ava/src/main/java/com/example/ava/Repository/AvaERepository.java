@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface AvaERepository extends JpaRepository<AvaE, Long> {
 
-    @Query("SELECT ae FROM AvaE ae WHERE ae.client.email = :clientEmail")
-    List<AvaE> findByClientEmail(@Param("clientEmail") String clientEmail);
+   @Query("SELECT ae FROM AvaE ae WHERE ae.client.email = :clientEmail")
+   List<AvaE> findByClientEmail(@Param("clientEmail") String clientEmail);
 }

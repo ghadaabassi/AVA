@@ -1,0 +1,16 @@
+<div class="container mt-4">
+
+
+    <h2 class="text-center"> Login</h2>
+
+    <div class="col-6 mx-auto" style="min-height: 470px;">
+
+        <input [(ngModel)]="personne.mail" type="text" class="form-control m-1" placeholder="email">
+        <input [(ngModel)]="personne.password" type="password" class="form-control m-1" placeholder="password">
+        <button (click)="login()" class="btn btn-dark form-control m-1" >Login</button>
+        <span class="center-text " style=" text-align: center; display: block; margin-top: 10px;">New here? <a class="signup-link" [routerLink]="['/usertype']">Sign up</a></span>
+
+
+    </div>
+
+</div>

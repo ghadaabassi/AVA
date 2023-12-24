@@ -1,6 +1,7 @@
 package com.example.ava.Model;
 
 import com.example.ava.Model.Enums.Secteur;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.*;
 
@@ -17,8 +18,11 @@ public class Client extends Personne {
     @Column(nullable = false)
     private String agenceSecteur;
 
+    
     @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private Ava ava;
+    
 
     public Client() {
 

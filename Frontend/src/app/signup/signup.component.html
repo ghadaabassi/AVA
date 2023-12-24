@@ -1,0 +1,20 @@
+<div class="container mt-4" style="margin-bottom: 50px;">
+
+
+    <h2 class="text-center"> Create account </h2>
+
+    <div class="col-6 mx-auto">
+
+        <input [(ngModel)]="client.nom" type="text" class="form-control m-1" placeholder="name">
+        <input  [(ngModel)]="client.telephone" type="text" class="form-control m-1" placeholder="phone number">
+        <input [(ngModel)]="client.adresse" type="text" class="form-control m-1" placeholder="adresse">
+        <input [(ngModel)]="client.email" type="text" class="form-control m-1" placeholder="email">
+        <input [(ngModel)]="client.password" type="password" class="form-control m-1" placeholder="password">
+        <textarea [(ngModel)]="client.about"  name="" id="" cols="30" rows="4" placeholder="about" class="form-control m-1" ></textarea>
+
+        <button (click)="signup()"  class="btn btn-dark form-control m-1">Register</button>
+
+
+    </div>
+
+</div>

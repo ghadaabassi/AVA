@@ -11,10 +11,10 @@ import java.util.Optional;
 @Service
 public class ClientService {
 
-    private final ClientRepository clientRepository;
+    public final ClientRepository clientRepository;
 
     @Autowired
-    public ClientService(ClientRepository clientRepository) {
+    public ClientService(ClientRepository clientRepository ) {
         this.clientRepository = clientRepository;
     }
 

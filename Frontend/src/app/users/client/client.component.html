@@ -1,0 +1,51 @@
+<div class="container mt-4" style="margin-bottom: 50px;">
+
+
+    <h2 class="text-center"> Ajouter Client </h2>
+
+    <div class="col-6 mx-auto">
+
+        <input [(ngModel)]="client.firstName" type="text" class="form-control m-1" placeholder="nom">
+        <input [(ngModel)]="client.lastName" type="text" class="form-control m-1" placeholder="prenom">
+        <input  [(ngModel)]="client.phoneNumber" type="text" class="form-control m-1" placeholder="phone number">
+        <input [(ngModel)]="client.residenceSecteur" type="text" class="form-control m-1" placeholder="residenceSecteur">
+        <input [(ngModel)]="client.email" type="text" class="form-control m-1" placeholder="email">
+        <input [(ngModel)]="client.agenceSecteur" type="text" class="form-control m-1" placeholder="agenceSecteur">
+        <label  for="selectOption" style="color: #152035; margin-left: 10px;">Secteur:</label>
+        <select  [(ngModel)]="opt" (change)="onSecteurChange()" class="text-center" id="selectOption" name="selectedOption" style="width:350px ; height: 33px; margin-left: 90px; border-color: gray; border-radius: 2px;  margin-top: 10px; margin-bottom: 10px;">
+            <option value="0">EXPORT</option>
+            <option value="1">PROFESSION_LIBERALE</option>
+            <option value="2">ETUDES_ET_CONSEILS</option>
+            <option value="3">SERVICES_INFORMATIQUES</option>
+            <option value="4">PROMOTION_IMMOBILIERE</option>
+            <option value="5">TRAVAUX_PUBLICS_ET_BATIMENT</option>
+            <option value="6">TRANSPORT_INTERNATIONAL_ROUTIER_DE_MARCHANDISES</option>
+            <option value="7">CONSIGNATION_DE_NAVIRES</option>
+            <option value="8">TRANSITAIRES</option>
+            <option value="9">PRODUCTION_ET_DISTRIBUTION_CINEMATOGRAPHIQUE</option>
+            <option value="10">IMPRESSION_ET_EDITION</option>
+            <option value="11">PUBLICITE_ET_COMMUNICATION</option>
+            <option value="12">ASSURANCES</option>
+            <option value="13">AGENCES_DE_VOYAGES_LICENCE_A</option>
+            <option value="14">ENSEIGNEMENT_SUPERIEUR_PRIVE</option>
+            <option value="15">CLINIQUES_PRIVEES</option>
+            <option value="16">LABORATOIRES_D_ANALYSES</option>
+            <option value="17">SERVICES_FINANCIERS_BANQUE_LEASING</option>
+            <option value="18">BOURSE_DES_VALEURS_MOBILIERES</option>
+            <option value="19">INTERMEDIAIRES_EN_BOURSE</option>
+            <option value="20">ANESTHESIE_ET_REANIMATION</option>
+            <option value="21">OBSTETRIQUE</option>
+            <option value="22">PSYCHIATRIE</option>
+            <option value="23">PHYSIOTHERAPIE</option>
+            <option value="24">ERGOTHERAPIE</option>
+            <option value="25">ORTHOPHONIE</option>
+            <option value="26">ORTHOPTIE</option>
+            <option value="27">PROTHESE</option>
+        </select>
+        <button (click)="ajouter()"  class="btn btn-dark form-control m-1">Register</button>
+
+
+    </div>
+
+</div>
+

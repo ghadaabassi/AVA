@@ -2,6 +2,9 @@ package com.example.ava.Service;
 
 import com.example.ava.Model.Ava;
 import com.example.ava.Repository.AvaRepository;
+import com.example.ava.Repository.ClientRepository;
+import com.example.ava.Repository.FileRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +15,14 @@ import java.util.Optional;
 public class AvaService {
 
     private final AvaRepository avaRepository;
+    private final ClientRepository clientRepository;
+    private final FileRepository fileRepository;
 
     @Autowired
-    public AvaService(AvaRepository avaRepository) {
+    public AvaService(AvaRepository avaRepository, ClientRepository clientRepository, FileRepository fileRepository) {
         this.avaRepository = avaRepository;
+        this.clientRepository = clientRepository;
+        this.fileRepository = fileRepository;
     }
 
     public List<Ava> getAllAvas() {

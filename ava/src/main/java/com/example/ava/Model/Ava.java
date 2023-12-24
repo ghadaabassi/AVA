@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 import com.example.ava.Model.Enums.Etat;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -31,13 +32,14 @@ public class Ava {
     @Enumerated(EnumType.STRING)
     private Etat etat = Etat.Attente;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id", unique = true)
+    @OneToOne
+    @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "file_id")
-    private File file; 
+    @ManyToOne
+    @JoinColumn(name = "file_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private File file;
 
     public Ava() {
 

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface AvaRepository extends JpaRepository<Ava, Long> {
 
-    @Query("SELECT a FROM Ava a WHERE a.client.id = :clientId")
-    List<Ava> findByClientId(@Param("clientId") Long clientId);
+    @Query("SELECT a FROM Ava a WHERE a.client.id = :client_id")
+    List<Ava> findByClientId(@Param("client_id") Long client_id);
 }
