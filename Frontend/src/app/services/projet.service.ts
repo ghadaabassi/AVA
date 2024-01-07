@@ -47,4 +47,10 @@ export class ProjetService {
     ActiverAVA(id:any  ){
       return this.http.put(this.url+'avas/activate/'+id,id);
     }
+
+    addAvaEWithFile(ava:any,beneficiaire:any){
+
+      return this.http.post(this.url+'/saveAvaWithBeneficiare',ava,beneficiaire);
+
+    }
 }

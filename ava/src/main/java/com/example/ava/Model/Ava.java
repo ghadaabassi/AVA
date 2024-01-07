@@ -18,13 +18,13 @@ public class Ava {
     private int type = 0; // 0:AVAA 1:AVAE
 
     @Column(nullable = false)
-    private long base;
+    private double base;
 
     @Column(nullable = false)
-    private Long initial;
+    private double initial = (base * 5) / 10;
 
     @Column(nullable = false)
-    private Long solde;
+    private double solde;
 
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -45,11 +45,11 @@ public class Ava {
 
     }
 
-    public Ava(long base, long initial, long solde, Date date, Client client, File file) {
+    public Ava(double base, double initial, double solde, Date date, Client client, File file) {
 
         this.base = base;
         this.initial = initial;
-        this.solde = solde;
+        this.solde = (base * 5) / 10;
         this.date = date;
         this.client = client;
         this.file = file;
@@ -71,27 +71,27 @@ public class Ava {
         this.type = type;
     }
 
-    public long getBase() {
+    public double getBase() {
         return base;
     }
 
-    public void setBase(long base) {
+    public void setBase(double base) {
         this.base = base;
     }
 
-    public long getInitial() {
+    public double getInitial() {
         return initial;
     }
 
-    public void setInitial(long initial) {
+    public void setInitial(double initial) {
         this.initial = initial;
     }
 
-    public long getSolde() {
+    public double getSolde() {
         return solde;
     }
 
-    public void setSolde(long solde) {
+    public void setSolde(double solde) {
         this.solde = solde;
     }
 

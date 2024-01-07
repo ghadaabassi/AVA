@@ -24,14 +24,14 @@ export class CreateAvaeComponent implements OnInit {
       residenceSecteur: '',
       agenceSecteur: '',
     },
-    beneficiaire: {
+    beneficiaires: [{
       firstName: '',
       lastName: '',
       email: '',
       phoneNumber: '',
       function: '',
       dateInscr: '',
-    },
+    }],
 
   };
   constructor(private router:Router,private serv:ProjetService) { }
@@ -81,12 +81,13 @@ export class CreateAvaeComponent implements OnInit {
   this.serv.addFile(fd).subscribe(data=>{
    console.log("Added file")
  });
-
+  this.avae.beneficiaires = [];
     this.serv.addAvaE(this.avae).subscribe(a => {
 
       console.log('avae added');
       this.router.navigate(['/home']);
     });
+    this.router.navigate(['/home']);
 
   }
 

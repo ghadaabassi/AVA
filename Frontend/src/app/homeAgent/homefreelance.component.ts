@@ -24,4 +24,8 @@ export class HomefreelanceComponent implements OnInit {
 
 }
 
+utiliser(id:any){
+  
+}
+
 }

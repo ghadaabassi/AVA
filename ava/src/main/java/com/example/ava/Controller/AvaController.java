@@ -45,7 +45,15 @@ public class AvaController {
 
             Client savedClient = clientService.saveClient(ava.getClient());
             ava.setClient(savedClient);
+
+            ava.setSolde(ava.getBase() / 2);
+            System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
         }
+        if (ava.getClass().getSimpleName().equals("AvaE")) {
+            ava.setType(1);
+        }
+            System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
+
         return avaService.saveAva(ava);
     }
 
@@ -72,6 +80,40 @@ public class AvaController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/use/{id}")
+    public ResponseEntity<String> utilizeAva(@PathVariable Long id, @RequestParam double amount) {
+        Optional<Ava> optionalAva = avaService.getAvaById(id);
+    
+        if (optionalAva.isPresent()) {
+            Ava ava = optionalAva.get();
+    
+            // Vérifiez si l'état actuel est "Actif"
+            if (ava.getEtat() == Etat.Actif) {
+                // Vérifiez si le solde initial est suffisant
+                if (ava.getSolde() >= amount) {
+                    // Mettez à jour le solde initial en retirant le montant
+                    double newSolde = ava.getSolde() - amount;
+                    ava.setSolde(newSolde);
+    
+                    // Enregistrez la mise à jour
+                    avaService.saveAva(ava);
+    
+                    return ResponseEntity.ok("Le montant a été retiré avec succès.");
+                } else {
+                    return ResponseEntity.badRequest().body("Solde insuffisant pour retirer le montant spécifié.");
+                }
+            } else {
+                return ResponseEntity.badRequest().body("L'Ava n'est pas dans l'état 'Actif'.");
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+
+
+
 
     @PutMapping("/{id}")
     public Ava updateAva(@PathVariable Long id, @RequestBody Ava ava) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
   adresse:any;
   email:any;
   about:any;
-  constructor(public serv:AuthService) { }
+  constructor(public serv:AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -30,27 +31,35 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  getid(){
-    let storedIdString = localStorage.getItem('id');
-    let storedIdNumber = storedIdString ? parseInt(storedIdString, 10) : 0;
-    if (storedIdString !== null) {
-    this.serv.getPersonByid(storedIdNumber).subscribe(
-      data  => {
-        this.personne=data;
-        //this.id=this.personne.id;
-        //this.adresse=this.personne.adresse;
-        //this.nom=this.personne.nom;
-        //this.telephone=this.personne.telephone;
-        //this.email=this.personne.email;
-        //this.about=this.personne.about;
-  },
-  err=>{
-    console.log(err);
-  });}
+  myaccount(){
+    if(localStorage.getItem('typeagent')=='true'){
+      this.router.navigate(['etranger',localStorage.getItem('id')]);
+    }else{
+      this.router.navigate(['agent',localStorage.getItem('id')]);
+    }
+
+  }
+
+
+  logout() {
+    localStorage.removeItem('id');
+    localStorage.removeItem('typeagent');
+    this.router.navigate(['/login']);
   }
   getidvalue(){
-    //this.getid();
     return localStorage.getItem('id');
+  }
+
+  
+  myhome(){
+    if(localStorage.getItem('typeagent')=='true'){
+      this.router.navigate(['/homeclient']);
+      console.log("homeagentEtranger");
+    }else{
+      console.log(localStorage.getItem('typeagent'));
+      this.router.navigate(['/homeAgent']);
+      
+    }
   }
 
 }
