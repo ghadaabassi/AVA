@@ -54,12 +54,17 @@ export class ProjetService {
 
     }
 
-
     useAva(id:any,amount:any){
       const body = { amount: amount }; // or { amount } if using TypeScript shorthand
       const options = { params: new HttpParams().set('amount', amount.toString()) };
 
       return this.http.put(this.url + 'avas/use/' + id, body, options);
-      //return this.http.put(this.url+'avas/use/'+id,{montant});
     }
+
+
+    addBeneficiare(beneficiaire:any){
+      return this.http.post(this.url+'',beneficiaire);
+    }
+
+
 }

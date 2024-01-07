@@ -1,5 +1,8 @@
 package com.example.ava.ControllerTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -14,20 +17,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.example.ava.Controller.AgentController;
 import com.example.ava.Controller.AvaController;
+import com.example.ava.Controller.AvaEController;
 import com.example.ava.Controller.PersonneController;
 import com.example.ava.Model.Agent;
 import com.example.ava.Model.Ava;
 import com.example.ava.Model.AvaE;
+import com.example.ava.Model.Client;
 import com.example.ava.Model.Personne;
 import com.example.ava.Model.Enums.Etat;
 import com.example.ava.Service.AgentService;
+import com.example.ava.Service.AvaEService;
 import com.example.ava.Service.AvaService;
+import com.example.ava.Service.BeneficiaireService;
 import com.example.ava.Service.ClientService;
 import com.example.ava.Service.PersonneService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,10 +59,19 @@ public class AvaControllerTest {
     @InjectMocks
     private AvaController avaController;
 
+    @Mock
+    private AvaEService avaEService;
+
+    @Mock
+    private BeneficiaireService beneficiaireService;
+
+    @InjectMocks
+    private AvaEController avaEController;
+
     @Autowired
     private MockMvc mockMvc;
 
-        @Autowired
+    @Autowired
     private ObjectMapper objectMapper;
 
     @Mock
@@ -74,15 +91,58 @@ public class AvaControllerTest {
                 .content(objectMapper.writeValueAsString(ava)))
                 .andExpect(MockMvcResultMatchers.status().isOk());
 
-        
         mockMvc.perform(MockMvcRequestBuilders.get("/api/avas")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[-1].etat").value("Attente"));
     }
 
+    @Test
+    public void testActivateAva() {
+     
+        Long avaId = 1L;
+        Ava existingAva = new Ava();
+        existingAva.setId(avaId);
+        existingAva.setEtat(Etat.Attente);
+
+        when(avaService.getAvaById(avaId)).thenReturn(Optional.of(existingAva));
+
+        when(avaService.saveAva(existingAva)).thenReturn(existingAva);
+
+        ResponseEntity<String> responseEntity = avaController.activateAva(avaId);
+
+        verify(avaService, times(1)).getAvaById(avaId);
+        verify(avaService, times(1)).saveAva(existingAva);
+        
+        assertEquals(ResponseEntity.ok("L'état de l'Ava a été changé avec succès."), responseEntity);
+    }
 
 
+    
+    @Test
+    public void testUtilizeAva() {
+        
+        Long avaId = 1L;
+        double amountToUtilize = 20.0;
+        Ava existingAva = new Ava();
+        existingAva.setId(avaId);
+        existingAva.setEtat(Etat.Actif);
+        existingAva.setSolde(30.0); 
 
+        when(avaService.getAvaById(avaId)).thenReturn(Optional.of(existingAva));
+    
+        when(avaService.saveAva(existingAva)).thenReturn(existingAva);
+
+        ResponseEntity<String> responseEntity = avaController.utilizeAva(avaId, amountToUtilize);
+
+        verify(avaService, times(1)).getAvaById(avaId);
+        verify(avaService, times(1)).saveAva(existingAva);
+
+    
+     
+
+        assertEquals(existingAva.getSolde(), 80.0); 
+        assertEquals(ResponseEntity.ok("Le montant a été retiré avec succès."), responseEntity);
+    }
 
 }

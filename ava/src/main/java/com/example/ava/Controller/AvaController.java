@@ -80,15 +80,14 @@ public class AvaController {
         if (optionalAva.isPresent()) {
             Ava ava = optionalAva.get();
     
-            // Vérifiez si l'état actuel est "Actif"
+           
             if (ava.getEtat() == Etat.Actif) {
-                // Vérifiez si le solde initial est suffisant
+         
                 if (ava.getSolde() >= amount) {
-                    // Mettez à jour le solde initial en retirant le montant
+
                     double newSolde = ava.getSolde() - amount;
                     ava.setSolde(newSolde);
-    
-                    // Enregistrez la mise à jour
+
                     avaService.saveAva(ava);
     
                     return ResponseEntity.ok("Le montant a été retiré avec succès.");

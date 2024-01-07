@@ -13,7 +13,7 @@
             <input [(ngModel)]="avae.client.email" type="text" class="form-control m-1" placeholder="email">
             <input [(ngModel)]="avae.client.agenceSecteur" type="text" class="form-control m-1" placeholder="agenceSecteur">
             <label  for="selectOption" style="color: #152035; margin-left: 10px;">Secteur:</label>
-            <select  [(ngModel)]="avae.client.secteur" (change)="onSecteurChange()" class="text-center" id="selectOption" name="selectedOption" style="width:350px ; height: 33px; margin-left: 90px; border-color: gray; border-radius: 2px;  margin-top: 10px; margin-bottom: 10px;">
+            <select  [(ngModel)]="avae.client.secteur"  class="text-center" id="selectOption" name="selectedOption" style="width:350px ; height: 33px; margin-left: 90px; border-color: gray; border-radius: 2px;  margin-top: 10px; margin-bottom: 10px;">
                 <option value="0">EXPORT</option>
                 <option value="1">PROFESSION_LIBERALE</option>
                 <option value="2">ETUDES_ET_CONSEILS</option>
