@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-client',
@@ -8,25 +10,20 @@ import { Component, OnInit } from '@angular/core';
 export class ClientComponent implements OnInit {
 
   
-  client={
-    firstName:'',
-    lastName:'',
-    email:'',
-    phoneNumber:'',
-    secteur:0,
-    residenceSecteur:'',
-    agenceSecteur : ''
-  }
-
-  opt=''
-  constructor() { }
+  agent:any
+  id=localStorage.getItem('id');
+  constructor(private serv:AuthService, public router:Router) { }
 
   ngOnInit(): void {
+
+    this.serv.getAgentByEmail(this.id)
+    .subscribe(agent => {this.agent = agent;
+    console.log(this.agent);
+    
+    },
+    err => { console.log(err);});
+    
   }
 
-  ajouter() {}
-  onSecteurChange() {
-    this.client.secteur = parseInt(this.opt, 10);
-    console.log('Selected Payment Method:', this.client.secteur);
-  }
+ 
 }

@@ -45,15 +45,12 @@ public class AvaController {
 
             Client savedClient = clientService.saveClient(ava.getClient());
             ava.setClient(savedClient);
-
             ava.setSolde(ava.getBase() / 2);
-           // System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
+            ava.setInitial(ava.getBase() / 2);
         }
         if (ava.getClass().getSimpleName().equals("AvaE")) {
             ava.setType(1);
         }
-            //System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
-
         return avaService.saveAva(ava);
     }
 
@@ -63,13 +60,8 @@ public class AvaController {
 
         if (optionalAva.isPresent()) {
             Ava ava = optionalAva.get();
-
-            // Vérifiez si l'état actuel est "Attente"
             if (ava.getEtat() == Etat.Attente) {
-                // Changez l'état vers "Actif"
                 ava.setEtat(Etat.Actif);
-
-                // Enregistrez la mise à jour
                 avaService.saveAva(ava);
 
                 return ResponseEntity.ok("L'état de l'Ava a été changé avec succès.");

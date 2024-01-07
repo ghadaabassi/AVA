@@ -15,7 +15,7 @@ export class FreelanceComponent implements OnInit {
   constructor(private serv:AuthService, public router:Router) { }
 
   ngOnInit(): void {
-    console.log("IDDDDDDDDDDDDDDDDDDDD:  "+this.id);
+   // console.log("IDDDDDDDDDDDDDDDDDDDD:  "+this.id);
     this.serv.getAgentByEmail(this.id)
     .subscribe(agent => {this.agent = agent;
     console.log(this.agent);

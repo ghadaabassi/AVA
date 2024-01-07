@@ -30,7 +30,7 @@ export class CreateAvaeComponent implements OnInit {
       email: '',
       phoneNumber: '',
       function: '',
-      dateInscr: '',
+      dateInscr: "2023-01-01",
     }],
 
   };

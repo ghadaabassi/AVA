@@ -76,6 +76,7 @@ public class AvaEController {
             Client savedClient = clientService.saveClient(avaE.getClient());
             avaE.setClient(savedClient);
             avaE.setSolde(avaE.getBase() / 2);
+            avaE.setInitial(avaE.getBase() / 2);
             avaE.setType(1);
             System.out.println("\ntypeeeeeeeeee: " + avaE.getClass().getSimpleName() + "\n\n");
         }

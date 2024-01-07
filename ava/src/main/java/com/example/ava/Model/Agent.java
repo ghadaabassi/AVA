@@ -17,7 +17,6 @@ public class Agent extends Personne {
         super(firstName, lastName, email, phoneNumber);
         this.etranger = etranger;
         this.password = password;
-
     }
 
     public boolean isEtranger() {

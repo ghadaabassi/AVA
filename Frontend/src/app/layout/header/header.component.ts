@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit {
   
   myhome(){
     if(localStorage.getItem('typeagent')=='true'){
-      this.router.navigate(['/homeclient']);
+      this.router.navigate(['/homeagentEtranger']);
       console.log("homeagentEtranger");
     }else{
       console.log(localStorage.getItem('typeagent'));
