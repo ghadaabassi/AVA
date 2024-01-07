@@ -41,35 +41,6 @@ public class AvaEController {
 
     @PostMapping
     public AvaE createAvaE(@RequestBody AvaE avaE) {
-        /*
-         * if (avaE.getBeneficiaires() != null && !avaE.getBeneficiaires().isEmpty()) {
-         * Beneficiaire newBeneficiaire = avaE.getBeneficiaires().get(0);
-         * System.out.println("\ntypeeeeeeeeee: " + avaE.getBeneficiaires().get(0) +
-         * "\n\n");
-         * 
-         * Beneficiaire savedBeneficiaire =
-         * beneficiaireService.saveBeneficiaire(newBeneficiaire);
-         * avaE.getBeneficiaires().add(savedBeneficiaire);
-         * }
-         * 
-         * /////////////////
-         * 
-         * if (avaE.getBeneficiaires() != null && !avaE.getBeneficiaires().isEmpty()) {
-         * Beneficiaire newBeneficiaire = avaE.getBeneficiaires().get(0);
-         * 
-         * // Check if the Beneficiaire is not yet persisted in the database
-         * //if (newBeneficiaire.getFonction() = null) {
-         * // If not persisted, save the Beneficiaire first
-         * Beneficiaire savedBeneficiaire =
-         * beneficiaireService.saveBeneficiaire(newBeneficiaire);
-         * 
-         * // Update the reference in the AvaE entity
-         * //avaE.getBeneficiaires().clear();
-         * avaE.getBeneficiaires().add(savedBeneficiaire);
-         * //}
-         * }
-         * 
-         */
 
         if (avaE.getClient() != null) {
 
@@ -78,7 +49,6 @@ public class AvaEController {
             avaE.setSolde(avaE.getBase() / 2);
             avaE.setInitial(avaE.getBase() / 2);
             avaE.setType(1);
-            System.out.println("\ntypeeeeeeeeee: " + avaE.getClass().getSimpleName() + "\n\n");
         }
 
         return avaEService.saveAvaE(avaE);
