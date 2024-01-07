@@ -32,10 +32,12 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('typeagent', this.agent.etranger);
             console.log('Loged In')
             console.log('agent type:',localStorage.getItem('typeagent'))
-            if (localStorage.getItem('type')=='false'){
+            if (localStorage.getItem('typeagent') =='true'){
+              console.log('condition:'+localStorage.getItem('type')=='true');
               this.router.navigate(['/homeagentEtranger']);
             }
             else{
+             // console.log('condition:'+localStorage.getItem('type')=='false');
               this.router.navigate(['/homeAgent']);
             }
   },

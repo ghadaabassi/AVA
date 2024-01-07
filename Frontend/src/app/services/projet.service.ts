@@ -36,7 +36,11 @@ export class ProjetService {
     }
 
     getAllavasNotwaiting(){
-      return this.http.get(this.url+'/notInAttente');
+      return this.http.get(this.url+'avas/notInAttente');
+    }
+
+    getAllavasWaiting(){
+      return this.http.get(this.url+'avas/inAttente');
     }
 
 }
