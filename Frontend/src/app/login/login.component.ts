@@ -20,19 +20,30 @@ export class LoginComponent implements OnInit {
 
   pers:any;
   id:any;
+  type:any;
+  agent:any
 
   login(){
 
     this.serv.login(this.personne.mail, this.personne.password).subscribe(
       data  => {
-        this.id=data;
-        localStorage.setItem('id', this.id);
-        console.log(localStorage.getItem('id'));
-        this.router.navigate(['/homefreelance']);
+        this.agent=data;
+            localStorage.setItem('id', this.agent.id);
+            localStorage.setItem('typeagent', this.agent.etranger);
+            console.log('Loged In')
+            console.log('agent type:',localStorage.getItem('typeagent'))
+            if (localStorage.getItem('type')=='false'){
+              this.router.navigate(['/homeagentEtranger']);
+            }
+            else{
+              this.router.navigate(['/homeAgent']);
+            }
   },
   err=>{
     console.log(err);
-  });}
+  });
+}
+
 
 
 

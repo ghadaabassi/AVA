@@ -7,14 +7,17 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PrivacyComponent } from './privacy/privacy.component';
-import { CreateprojectComponent } from './createproject/createproject.component';
+import { CreateprojectComponent } from './createAvaa/createproject.component';
 import { FreelanceComponent } from './users/freelance/freelance.component';
 import { ContactComponent } from './contact/contact.component';
 import { UsertypeComponent } from './usertype/usertype.component';
-import { HomefreelanceComponent } from './homefreelance/homefreelance.component';
+import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 import { ClientComponent } from './users/client/client.component';
 import { AdminComponent } from './users/admin/admin.component';
+import { CreateAvaeComponent } from './create-avae/create-avae.component';
+import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
+import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etranger.component';
 
 const routes: Routes = [
 
@@ -25,14 +28,17 @@ const routes: Routes = [
   {path:'signup',component: SignupComponent},
   {path:'about',component: AboutComponent},
   {path:'privacy',component: PrivacyComponent},
-  {path:'createproject',component: CreateprojectComponent},
+  {path:'createavaa',component: CreateprojectComponent},
   {path:'freelance/:id',component: FreelanceComponent},
   {path:'client',component: ClientComponent},
   {path:'admin',component: AdminComponent},
   {path:'contact',component: ContactComponent },
   {path:'usertype',component: UsertypeComponent },
-  {path:'homefreelance',component: HomefreelanceComponent },
+  {path:'homeAgent',component: HomefreelanceComponent },
   {path:'projectdetails',component: ProjectdetailsComponent},
+  {path:'createavae', component: CreateAvaeComponent},
+  {path:'signupetranger',component: SignupAgentEtrangerComponent },
+  {path:'homeagentEtranger',component: HomeAgentEtrangerComponent},
 
   {path:'**',component: NotfoundComponent},
   

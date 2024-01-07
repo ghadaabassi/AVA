@@ -52,24 +52,11 @@ ava=  {
   },
 };
 
-  /*
-  client={
-    firstName:'',
-    lastName:'',
-    email:'',
-    phoneNumber:'',
-    secteur:0,
-    residenceSecteur:'',
-    agenceSecteur : ''
-  }
-  */
 
   file:any
 
   select(e:any){
-    //if (e.target.length > 0) {
     this.file=e.target.files[0];
-  //}
   }
 
   constructor(private serv:ProjetService,private router:Router ) { }
@@ -88,14 +75,14 @@ ava=  {
 
       let fd= new FormData()
       fd.append('file',this.file);
-      //fd.append('title',this.ava.client.email);
-      console.log("fd.has('file'): ", fd.has('file'));  // Check if 'file' is present
-      console.log("fd.has('title'): ", fd.has('title')); 
-      console.log("fd.get('file'): ", fd.get('file'));  // Get value associated with 'file'
-//console.log("fd.get('title'): ", fd.get('title')); 
-    this.serv.addAVA(this.ava,fd)
-    .subscribe((res:any) =>{
+     this.serv.addFile(fd).subscribe(data=>{
+      console.log("Added file")
+    });
+
+    this.serv.addAVA(this.ava)
     
+    .subscribe((res:any) =>{
+
       this.router.navigate(['/home']);
     },
     err=>{
@@ -104,8 +91,12 @@ ava=  {
   
 }
 
+
+
+
+
 onSecteurChange() {
-  //this.client.secteur = parseInt(this.opt, 10);
+  
   console.log('Selected Payment Method:', this.ava.client.secteur);
 }
 

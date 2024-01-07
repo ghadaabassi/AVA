@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,20 +9,25 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   constructor(private http:HttpClient) {}
-  private url='https://localhost:7266/api/'
+  private url='http://localhost:8081/api/agents'
 
-login(username:string,password:string){
-  return this.http.get(this.url+'Personnes/GetPersonneIdByEmailAndPassword?email='+username+'&password='+password)
-}
-
-signup(client: any){
-  return this.http.post(this.url+'Clients',client);
-
+  login(email: string, password: string): Observable<any> {
+    const params = new HttpParams()
+      .set('email', email)
+      .set('password', password);
   
+    return this.http.get<any>(this.url + '/emailAndPassword', { params });
+  }
+  
+
+signup(agent: any){
+  return this.http.post(this.url,agent);
+
 }
 
 getPersonByid(id:number){
     return this.http.get(this.url+'Personnes/id='+id);
 }
+
 
 }

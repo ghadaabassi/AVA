@@ -15,13 +15,16 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PrivacyComponent } from './privacy/privacy.component';
-import { CreateprojectComponent } from './createproject/createproject.component';
+import { CreateprojectComponent } from './createAvaa/createproject.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UsertypeComponent } from './usertype/usertype.component';
-import { HomefreelanceComponent } from './homefreelance/homefreelance.component';
+import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
+import { CreateAvaeComponent } from './create-avae/create-avae.component';
+import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
+import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etranger.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { ProjectdetailsComponent } from './projectdetails/projectdetails.compone
     ContactComponent,
     UsertypeComponent,
     HomefreelanceComponent,
-    ProjectdetailsComponent
+    ProjectdetailsComponent,
+    CreateAvaeComponent,
+    SignupAgentEtrangerComponent,
+    HomeAgentEtrangerComponent
   ],
   imports: [
     BrowserModule,

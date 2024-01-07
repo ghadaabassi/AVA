@@ -35,6 +35,26 @@ public class AgentService {
         existingAgent.ifPresent(agent -> agentRepository.delete(agent));
     }
 
+
+    public Optional<Agent> getAgentByEmailAndPassword(String email, String password) {
+       
+        Optional<Agent> optionalAgent = agentRepository.findByEmail(email);
+
+       
+        if (optionalAgent.isPresent() && verifyPassword(optionalAgent.get(), password)) {
+            return optionalAgent;
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    private boolean verifyPassword(Agent agent, String password) {
+
+        return agent.getPassword().equals(password);
+    }
+
+
+
     public Optional<Agent> updateAgent(String email, Agent updatedAgent) {
         return getAgentByEmail(email).map(existingAgent -> {
             existingAgent.setFirstName(updatedAgent.getFirstName());

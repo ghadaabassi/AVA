@@ -15,16 +15,10 @@ export class ProjetService {
       return this.http.post(this.url+'clients',client);
     }
 
-    addAVA(project:any,file:any){
-      return this.http.post(this.url+'avas', project,file);
+    addAVA(project:any){
+      return this.http.post(this.url+'avas',project);
     }
     
-    /*
-    addAVA(ava: any, file: FormData): Observable<any> {
-    
-      return this.http.post(this.url+'avas', file, { params: ava });
-    }*/
-
     getAVAId(id:number){
       return this.http.get(this.url+'avas/'+id);
     }
@@ -36,4 +30,13 @@ export class ProjetService {
     getallAvas(){
       return this.http.get(this.url+'avas');
     }
+
+    addAvaE(avae:any){
+      return this.http.post(this.url+'avaes',avae)
+    }
+
+    getAllavasNotwaiting(){
+      return this.http.get(this.url+'/notInAttente');
+    }
+
 }

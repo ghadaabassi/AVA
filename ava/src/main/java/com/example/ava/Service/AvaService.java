@@ -1,6 +1,7 @@
 package com.example.ava.Service;
 
 import com.example.ava.Model.Ava;
+import com.example.ava.Model.Enums.Etat;
 import com.example.ava.Repository.AvaRepository;
 import com.example.ava.Repository.ClientRepository;
 import com.example.ava.Repository.FileRepository;
@@ -16,13 +17,12 @@ public class AvaService {
 
     private final AvaRepository avaRepository;
     private final ClientRepository clientRepository;
-    private final FileRepository fileRepository;
-
+  
     @Autowired
-    public AvaService(AvaRepository avaRepository, ClientRepository clientRepository, FileRepository fileRepository) {
+    public AvaService(AvaRepository avaRepository, ClientRepository clientRepository) {
         this.avaRepository = avaRepository;
         this.clientRepository = clientRepository;
-        this.fileRepository = fileRepository;
+       
     }
 
     public List<Ava> getAllAvas() {
@@ -49,5 +49,15 @@ public class AvaService {
 
     public List<Ava> getAvasByClientId(Long clientId) {
         return avaRepository.findByClientId(clientId);
+    }
+
+     public List<Ava> getAllAvasNotInAttente() {
+        // Implement logic to retrieve Avas where Etat is not equal to Etat.Attente
+        return avaRepository.findByEtatNot(Etat.Attente);
+    }
+
+    public List<Ava> getAllAvasInAttente() {
+        // Implement logic to retrieve Avas where Etat is equal to Etat.Attente
+        return avaRepository.findByEtat(Etat.Attente);
     }
 }

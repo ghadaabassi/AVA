@@ -29,6 +29,12 @@ public class AgentController {
         return agentService.getAgentByEmail(email).orElse(null);
     }
 
+
+    @GetMapping("/emailAndPassword")
+    public Agent getAgentByEmailAndPassword(@RequestParam String email, @RequestParam String password) {
+        return agentService.getAgentByEmailAndPassword(email, password).orElse(null);
+    }
+
     @PostMapping
     public Agent createAgent(@RequestBody Agent agent) {
         return agentService.saveAgent(agent);

@@ -22,6 +22,7 @@ public class Personne {
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
     }
 
     public String getFirstName() {
@@ -55,4 +56,5 @@ public class Personne {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
 }

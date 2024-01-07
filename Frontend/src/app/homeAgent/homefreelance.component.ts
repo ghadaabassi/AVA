@@ -8,13 +8,19 @@ import { ProjetService } from '../services/projet.service';
 })
 export class HomefreelanceComponent implements OnInit {
 
-  projects:any;
-  payment=["CreditCard","BankTransfer","PayPal"];
+  avas:any;
+  avatype=["AVAA","AVAE",];
   constructor(private serv:ProjetService) { }
 
   ngOnInit(): void {
 
-
+    this.serv.getAllavasNotwaiting().subscribe(
+      res=>{
+        this.avas = res;
+      },
+      err=>{
+        console.log(err);
+      });
 
 }
 

@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-signup-agent-etranger',
+  templateUrl: './signup-agent-etranger.component.html',
+  styleUrls: ['./signup-agent-etranger.component.css']
 })
-export class SignupComponent implements OnInit {
-
+export class SignupAgentEtrangerComponent implements OnInit {
   agent={
     firstName:'',
     lastName:'',
     phoneNumber:'',
     email:'',
     password:'',
-    etranger:false
+    etranger:true
 
   }
   constructor(private serv:AuthService, private router:Router) { }
@@ -33,5 +32,6 @@ export class SignupComponent implements OnInit {
     }
     );
   }
+
 
 }
