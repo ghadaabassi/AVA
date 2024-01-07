@@ -22,5 +22,16 @@ export class HomeAgentEtrangerComponent implements OnInit {
       console.log(err);
     });
   }
+  
+  autoriser(id:any){
+    return this.serv.ActiverAVA(id).subscribe(
+      ava=>{
+        console.log("AVA Activated");
+      },
+      err=>{
+        console.log(err);
+      }
+    );
+  }
 
 }

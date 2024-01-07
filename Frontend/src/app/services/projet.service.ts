@@ -43,4 +43,8 @@ export class ProjetService {
       return this.http.get(this.url+'avas/inAttente');
     }
 
+
+    ActiverAVA(id:any  ){
+      return this.http.put(this.url+'avas/activate/'+id,id);
+    }
 }

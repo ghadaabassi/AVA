@@ -2,14 +2,16 @@ package com.example.ava.Controller;
 
 import com.example.ava.Model.Ava;
 import com.example.ava.Model.Client;
+import com.example.ava.Model.Enums.Etat;
 import com.example.ava.Service.AvaService;
 import com.example.ava.Service.ClientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/avas")
@@ -23,7 +25,7 @@ public class AvaController {
     public AvaController(AvaService avaService, ClientService clientService) {
         this.avaService = avaService;
         this.clientService = clientService;
-     
+
     }
 
     @GetMapping
@@ -45,6 +47,30 @@ public class AvaController {
             ava.setClient(savedClient);
         }
         return avaService.saveAva(ava);
+    }
+
+    @PutMapping("/activate/{id}")
+    public ResponseEntity<String> activateAva(@PathVariable Long id) {
+        Optional<Ava> optionalAva = avaService.getAvaById(id);
+
+        if (optionalAva.isPresent()) {
+            Ava ava = optionalAva.get();
+
+            // Vérifiez si l'état actuel est "Attente"
+            if (ava.getEtat() == Etat.Attente) {
+                // Changez l'état vers "Actif"
+                ava.setEtat(Etat.Actif);
+
+                // Enregistrez la mise à jour
+                avaService.saveAva(ava);
+
+                return ResponseEntity.ok("L'état de l'Ava a été changé avec succès.");
+            } else {
+                return ResponseEntity.badRequest().body("L'Ava n'est pas dans l'état 'Attente'.");
+            }
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping("/{id}")

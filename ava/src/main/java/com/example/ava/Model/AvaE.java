@@ -23,8 +23,6 @@ public class AvaE extends Ava {
         super(base, initial, solde, date, client, file);
         this.setType(1);
         this.beneficiaires = beneficiaires;
-        // this.setBeneficiaires(beneficiaires);
-
     }
 
     @Column(nullable = false)
