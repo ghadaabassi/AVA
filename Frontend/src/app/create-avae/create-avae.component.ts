@@ -24,16 +24,18 @@ export class CreateAvaeComponent implements OnInit {
       residenceSecteur: '',
       agenceSecteur: '',
     },
-    beneficiaires: [{
+    beneficiaire: {
       firstName: '',
       lastName: '',
       email: '',
       phoneNumber: '',
       function: '',
       dateInscr: "2023-01-01",
-    }],
+    },
 
   };
+
+
   constructor(private router:Router,private serv:ProjetService) { }
 
   showBeneficiaire: boolean = false;
@@ -81,17 +83,22 @@ export class CreateAvaeComponent implements OnInit {
   this.serv.addFile(fd).subscribe(data=>{
    console.log("Added file")
  });
+ console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBB: "+this.avae.beneficiaire);
 
+this.serv.addBeneficiare(this.avae.beneficiaire).subscribe(data=>{
+  console.log("Beneficiaire Added");
+},
+err=>{
+  console.log("ERRRRRRRRRRRRRRRRRRRRRRRR: "+err);
+}
+);
 
-
- 
-  this.avae.beneficiaires = [];
+  //this.avae.beneficiaires = [];
     this.serv.addAvaE(this.avae).subscribe(a => {
 
       console.log('avae added');
       this.router.navigate(['/homeAgent']);
     });
-    //this.router.navigate(['/home']);
 
   }
 

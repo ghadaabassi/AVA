@@ -55,7 +55,7 @@ export class ProjetService {
     }
 
     useAva(id:any,amount:any){
-      const body = { amount: amount }; // or { amount } if using TypeScript shorthand
+      const body = { amount: amount }; 
       const options = { params: new HttpParams().set('amount', amount.toString()) };
 
       return this.http.put(this.url + 'avas/use/' + id, body, options);
@@ -63,7 +63,7 @@ export class ProjetService {
 
 
     addBeneficiare(beneficiaire:any){
-      return this.http.post(this.url+'',beneficiaire);
+      return this.http.post(this.url+'beneficiaires',beneficiaire);
     }
 
 

@@ -30,13 +30,12 @@ export class LoginComponent implements OnInit {
         this.agent=data;
             localStorage.setItem('id', this.agent.email);
             localStorage.setItem('typeagent', this.agent.etranger);
-            console.log('iddddddd :',this.agent)
             if (localStorage.getItem('typeagent') =='true'){
              
               this.router.navigate(['/homeagentEtranger']);
             }
             else{
-             // console.log('condition:'+localStorage.getItem('type')=='false');
+            
               this.router.navigate(['/homeAgent']);
             }
   },

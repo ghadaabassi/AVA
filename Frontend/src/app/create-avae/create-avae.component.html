@@ -55,11 +55,11 @@
         
         <label  for="beneficiaire" style="color: #152035; margin-left: 10px; font-size: 19px;"><strong><u><a (click)="toggleBeneficiaire()">Ajouter Bénéficiaire:</a></u></strong></label>
         <div  id="beneficiaire">
-            <input [(ngModel)]="avae.beneficiaires[0].firstName" type="text" class="form-control m-1" placeholder="nom">
-            <input [(ngModel)]="avae.beneficiaires[0].lastName" type="text" class="form-control m-1" placeholder="prenom">
-            <input  [(ngModel)]="avae.beneficiaires[0].phoneNumber" type="text" class="form-control m-1" placeholder="phone number">
-            <input [(ngModel)]="avae.beneficiaires[0].function" type="text" class="form-control m-1" placeholder=" Function">
-            <input [(ngModel)]="avae.beneficiaires[0].dateInscr" type="date" class="form-control m-1" placeholder="Inscription Date">
+            <input [(ngModel)]="avae.beneficiaire.firstName" type="text" class="form-control m-1" placeholder="nom">
+            <input [(ngModel)]="avae.beneficiaire.lastName" type="text" class="form-control m-1" placeholder="prenom">
+            <input  [(ngModel)]="avae.beneficiaire.phoneNumber" type="text" class="form-control m-1" placeholder="phone number">
+            <input [(ngModel)]="avae.beneficiaire.function" type="text" class="form-control m-1" placeholder=" Function">
+            <input [(ngModel)]="avae.beneficiaire.dateInscr" type="date" class="form-control m-1" placeholder="Inscription Date">
         </div>
         
         <button (click)="addAvaE()" class="btn btn-dark form-control m-1">Ajouter</button>
