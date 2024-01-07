@@ -47,12 +47,12 @@ public class AvaController {
             ava.setClient(savedClient);
 
             ava.setSolde(ava.getBase() / 2);
-            System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
+           // System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
         }
         if (ava.getClass().getSimpleName().equals("AvaE")) {
             ava.setType(1);
         }
-            System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
+            //System.out.println("\ntypeeeeeeeeee: "+ava.getClass().getSimpleName()+"\n\n");
 
         return avaService.saveAva(ava);
     }

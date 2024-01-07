@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -52,5 +52,14 @@ export class ProjetService {
 
       return this.http.post(this.url+'/saveAvaWithBeneficiare',ava,beneficiaire);
 
+    }
+
+
+    useAva(id:any,amount:any){
+      const body = { amount: amount }; // or { amount } if using TypeScript shorthand
+      const options = { params: new HttpParams().set('amount', amount.toString()) };
+
+      return this.http.put(this.url + 'avas/use/' + id, body, options);
+      //return this.http.put(this.url+'avas/use/'+id,{montant});
     }
 }
