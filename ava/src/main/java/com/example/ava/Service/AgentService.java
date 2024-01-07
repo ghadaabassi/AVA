@@ -53,6 +53,11 @@ public class AgentService {
         return agent.getPassword().equals(password);
     }
 
+    public Optional<Agent> getAgentById(Long id) {
+        
+        return agentRepository.findById(id);
+    }
+    
 
 
     public Optional<Agent> updateAgent(String email, Agent updatedAgent) {

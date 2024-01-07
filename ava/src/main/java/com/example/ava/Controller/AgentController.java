@@ -3,9 +3,11 @@ package com.example.ava.Controller;
 import com.example.ava.Model.Agent;
 import com.example.ava.Service.AgentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -24,11 +26,21 @@ public class AgentController {
         return agentService.getAllAgents();
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/email/{email}")
     public Agent getAgentByEmail(@PathVariable String email) {
         return agentService.getAgentByEmail(email).orElse(null);
     }
 
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Agent> getAgentById(@PathVariable Long id) {
+        Optional<Agent> agent = agentService.getAgentById(id);
+
+        if (agent.isPresent()) {
+            return ResponseEntity.ok(agent.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     @GetMapping("/emailAndPassword")
     public Agent getAgentByEmailAndPassword(@RequestParam String email, @RequestParam String password) {

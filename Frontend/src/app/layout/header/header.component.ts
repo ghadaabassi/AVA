@@ -33,9 +33,9 @@ export class HeaderComponent implements OnInit {
 
   myaccount(){
     if(localStorage.getItem('typeagent')=='true'){
-      this.router.navigate(['etranger',localStorage.getItem('id')]);
+      this.router.navigate(['etranger']);
     }else{
-      this.router.navigate(['agent',localStorage.getItem('id')]);
+      this.router.navigate(['agent']);
     }
 
   }
