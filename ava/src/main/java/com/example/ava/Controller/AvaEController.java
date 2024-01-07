@@ -46,8 +46,14 @@ public class AvaEController {
 
             Client savedClient = clientService.saveClient(avaE.getClient());
             avaE.setClient(savedClient);
-            avaE.setSolde(avaE.getBase() / 2);
-            avaE.setInitial(avaE.getBase() / 2);
+            if (avaE.getBase() / 2 <= 50000) {
+                avaE.setSolde(avaE.getBase() / 2);
+                avaE.setInitial(avaE.getBase() / 2);
+            } else {
+                avaE.setSolde(50000);
+                avaE.setInitial(50000);
+            }
+
             avaE.setType(1);
         }
 
