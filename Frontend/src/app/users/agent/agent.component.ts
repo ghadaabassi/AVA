@@ -5,10 +5,10 @@ import { ProjetService } from 'src/app/services/projet.service';
 
 @Component({
   selector: 'app-freelance',
-  templateUrl: './freelance.component.html',
-  styleUrls: ['./freelance.component.css']
+  templateUrl: './agent.component.html',
+  styleUrls: ['./agent.component.css']
 })
-export class FreelanceComponent implements OnInit {
+export class AgentComponent implements OnInit {
 
   agent:any
   id=localStorage.getItem('id');

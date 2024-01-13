@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FreelanceComponent } from './freelance.component';
+import { FreelanceComponent } from './agent.component';
 
 describe('FreelanceComponent', () => {
   let component: FreelanceComponent;
