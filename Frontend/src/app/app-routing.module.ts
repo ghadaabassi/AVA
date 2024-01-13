@@ -14,7 +14,6 @@ import { UsertypeComponent } from './usertype/usertype.component';
 import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 import { ClientComponent } from './users/etranger/client.component';
-import { AdminComponent } from './users/admin/admin.component';
 import { CreateAvaeComponent } from './create-avae/create-avae.component';
 import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
 import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etranger.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   {path:'createavaa',component: CreateprojectComponent},
   {path:'agent',component: FreelanceComponent},
   {path:'etranger',component: ClientComponent},
-  {path:'admin',component: AdminComponent},
   {path:'contact',component: ContactComponent },
   {path:'usertype',component: UsertypeComponent },
   {path:'homeAgent',component: HomefreelanceComponent },
