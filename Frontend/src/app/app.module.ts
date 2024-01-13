@@ -14,7 +14,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PrivacyComponent } from './privacy/privacy.component';
-import { CreateprojectComponent } from './createAvaa/createproject.component';
+import {CreateAvaaComponent } from './createAvaa/createAvaacomponent';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -38,7 +38,7 @@ import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etr
     AboutComponent,
     NotfoundComponent,
     PrivacyComponent,
-    CreateprojectComponent,
+    CreateAvaaComponent,
     ContactComponent,
     UsertypeComponent,
     HomeAgentComponent,

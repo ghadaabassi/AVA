@@ -6,7 +6,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { PrivacyComponent } from './privacy/privacy.component';
-import { CreateprojectComponent } from './createAvaa/createproject.component';
+import { CreateAvaaComponent } from './createAvaa/createAvaacomponent';
 import { AgentComponent } from './users/agent/agent.component';
 import { ContactComponent } from './contact/contact.component';
 import { UsertypeComponent } from './usertype/usertype.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'signup',component: SignupComponent},
   {path:'about',component: AboutComponent},
   {path:'privacy',component: PrivacyComponent},
-  {path:'createavaa',component: CreateprojectComponent},
+  {path:'createavaa',component: CreateAvaaComponent},
   {path:'agent',component: AgentComponent},
   {path:'etranger',component: EtrangerComponent},
   {path:'contact',component: ContactComponent },

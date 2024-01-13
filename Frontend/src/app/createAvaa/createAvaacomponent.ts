@@ -4,35 +4,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createproject',
-  templateUrl: './createproject.component.html',
-  styleUrls: ['./createproject.component.css']
+  templateUrl: './createAvaa.component.html',
+  styleUrls: ['./createAvaa.component.css']
 })
-export class CreateprojectComponent implements OnInit {
-
-
-  /*
-  ava={
-    type : 0,
-    base:0,
-    initial:0,
-    date:"2023-01-01",
-    solde:0,
-    etat :0,
-    client :null,
-    file:null,}
-
-client= {
-  firstName: '',
-  lastName: '',
-  email: '',
-  phoneNumber: '',
-  secteur: '',
-  residenceSecteur: '',
-  agenceSecteur: '',
-  
-};
-*/
-
+export class CreateAvaaComponent implements OnInit {
 
 ava=  {
   type: 0,
