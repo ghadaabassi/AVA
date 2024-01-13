@@ -17,12 +17,12 @@ public class AvaService {
 
     private final AvaRepository avaRepository;
     private final ClientRepository clientRepository;
-  
+
     @Autowired
     public AvaService(AvaRepository avaRepository, ClientRepository clientRepository) {
         this.avaRepository = avaRepository;
         this.clientRepository = clientRepository;
-       
+
     }
 
     public List<Ava> getAllAvas() {
@@ -51,13 +51,11 @@ public class AvaService {
         return avaRepository.findByClientId(clientId);
     }
 
-     public List<Ava> getAllAvasNotInAttente() {
-        // Implement logic to retrieve Avas where Etat is not equal to Etat.Attente
+    public List<Ava> getAllAvasNotInAttente() {
         return avaRepository.findByEtatNot(Etat.Attente);
     }
 
     public List<Ava> getAllAvasInAttente() {
-        // Implement logic to retrieve Avas where Etat is equal to Etat.Attente
         return avaRepository.findByEtat(Etat.Attente);
     }
 }
