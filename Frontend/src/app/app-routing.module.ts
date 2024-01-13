@@ -11,7 +11,6 @@ import { AgentComponent } from './users/agent/agent.component';
 import { ContactComponent } from './contact/contact.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
-import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 import { EtrangerComponent } from './users/etranger/etranger.component';
 import { CreateAvaeComponent } from './create-avae/create-avae.component';
 import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   {path:'contact',component: ContactComponent },
   {path:'usertype',component: UsertypeComponent },
   {path:'homeAgent',component: HomefreelanceComponent },
-  {path:'projectdetails',component: ProjectdetailsComponent},
   {path:'createavae', component: CreateAvaeComponent},
   {path:'signupetranger',component: SignupAgentEtrangerComponent },
   {path:'homeagentEtranger',component: HomeAgentEtrangerComponent},

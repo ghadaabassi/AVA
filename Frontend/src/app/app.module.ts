@@ -20,7 +20,6 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
-import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
 import { CreateAvaeComponent } from './create-avae/create-avae.component';
 import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
 import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etranger.component';
@@ -43,7 +42,6 @@ import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etr
     ContactComponent,
     UsertypeComponent,
     HomefreelanceComponent,
-    ProjectdetailsComponent,
     CreateAvaeComponent,
     SignupAgentEtrangerComponent,
     HomeAgentEtrangerComponent
