@@ -3,10 +3,10 @@ import { ProjetService } from '../services/ava.service';
 
 @Component({
   selector: 'app-homefreelance',
-  templateUrl: './homefreelance.component.html',
-  styleUrls: ['./homefreelance.component.css']
+  templateUrl: './homeAgent.component.html',
+  styleUrls: ['./homeAgent.component.css']
 })
-export class HomefreelanceComponent implements OnInit {
+export class HomeAgentComponent implements OnInit {
 
   avas:any;
   avatype=["AVAA","AVAE",];
