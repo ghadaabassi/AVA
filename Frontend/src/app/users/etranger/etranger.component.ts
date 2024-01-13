@@ -4,10 +4,10 @@ import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  templateUrl: './etranger.component.html',
+  styleUrls: ['./etranger.component.css']
 })
-export class ClientComponent implements OnInit {
+export class EtrangerComponent implements OnInit {
 
   
   agent:any

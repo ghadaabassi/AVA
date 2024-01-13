@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './users/admin/admin.component';
-import { ClientComponent } from './users/etranger/client.component';
+
+import {EtrangerComponent} from './users/etranger/etranger.component';
 import { FreelanceComponent } from './users/agent/freelance.component';
 import { ProjetComponent } from './projet/projet.component';
 import { LoginComponent } from './login/login.component';
@@ -33,8 +33,7 @@ import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etr
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AdminComponent,
-    ClientComponent,
+    EtrangerComponent,
     FreelanceComponent,
     ProjetComponent,
     LoginComponent,
