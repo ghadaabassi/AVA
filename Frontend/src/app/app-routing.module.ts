@@ -13,7 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { UsertypeComponent } from './usertype/usertype.component';
 import { HomefreelanceComponent } from './homeAgent/homefreelance.component';
 import { ProjectdetailsComponent } from './projectdetails/projectdetails.component';
-import { ClientComponent } from './users/etranger/etranger.component';
+import { EtrangerComponent } from './users/etranger/etranger.component';
 import { CreateAvaeComponent } from './create-avae/create-avae.component';
 import { SignupAgentEtrangerComponent } from './signup-agent-etranger/signup-agent-etranger.component';
 import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etranger.component';
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'privacy',component: PrivacyComponent},
   {path:'createavaa',component: CreateprojectComponent},
   {path:'agent',component: FreelanceComponent},
-  {path:'etranger',component: ClientComponent},
+  {path:'etranger',component: EtrangerComponent},
   {path:'contact',component: ContactComponent },
   {path:'usertype',component: UsertypeComponent },
   {path:'homeAgent',component: HomefreelanceComponent },
