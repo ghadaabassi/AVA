@@ -8,8 +8,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
 import {EtrangerComponent} from './users/etranger/etranger.component';
-import { FreelanceComponent } from './users/agent/agent.component';
-import { ProjetComponent } from './projet/projet.component';
+import { AgentComponent } from './users/agent/agent.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AboutComponent } from './about/about.component';
@@ -34,8 +33,7 @@ import { HomeAgentEtrangerComponent } from './home-agent-etranger/home-agent-etr
     FooterComponent,
     HomeComponent,
     EtrangerComponent,
-    FreelanceComponent,
-    ProjetComponent,
+    AgentComponent,
     LoginComponent,
     SignupComponent,
     AboutComponent,
