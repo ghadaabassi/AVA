@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
-import { ProjetService } from '../services/projet.service';
+import { ProjetService } from '../services/ava.service';
 
 @Component({
   selector: 'app-create-avae',
