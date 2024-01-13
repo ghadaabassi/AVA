@@ -117,7 +117,6 @@ public class AvaControllerTest {
         assertEquals(ResponseEntity.ok("L'état de l'Ava a été changé avec succès."), responseEntity);
     }
 
-
     
     @Test
     public void testUtilizeAva() {
@@ -128,6 +127,14 @@ public class AvaControllerTest {
         existingAva.setId(avaId);
         existingAva.setEtat(Etat.Actif);
         existingAva.setSolde(30.0); 
+
+
+
+
+
+
+
+        
 
         when(avaService.getAvaById(avaId)).thenReturn(Optional.of(existingAva));
     
@@ -141,7 +148,7 @@ public class AvaControllerTest {
     
      
 
-        assertEquals(existingAva.getSolde(), 80.0); 
+        assertEquals(existingAva.getSolde(), 10.0); 
         assertEquals(ResponseEntity.ok("Le montant a été retiré avec succès."), responseEntity);
     }
 
